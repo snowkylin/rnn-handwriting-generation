@@ -39,7 +39,8 @@ with tf.Session() as sess:
         print "epoch %d" % e
         data_loader.reset_batch_pointer()
         for b in range(data_loader.num_batches):
-            x, y = data_loader.next_batch()
+            x, y, c = data_loader.next_batch()
+            print c
             # print x
             # print sess.run([model.loss_gaussian, model.loss_bernoulli],
             #                feed_dict={model.x: x, model.y: y})
