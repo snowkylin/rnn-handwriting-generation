@@ -156,7 +156,11 @@ def draw_strokes_pdf(data, param, factor=10, svg_filename = 'sample_pdf.svg'):
     dwg.save()
     display(SVG(dwg.tostring()))
 
-
+def vectorization(c, char_dict):
+    x = np.zeros((len(c), len(char_dict)), dtype=np.bool)
+    for i, c_i in enumerate(c):
+        x[i, char_dict[c_i]] = 1
+    return x
 
 class DataLoader():
     def __init__(self, batch_size=50, seq_length=300, scale_factor = 10, limit = 500):
@@ -292,6 +296,16 @@ class DataLoader():
         print "%d strokes available" % len(self.data)
         # minus 1, since we want the ydata to be a shifted version of x data
         self.num_batches = int(counter / self.batch_size)
+        self.max_U = max([len(i) for i in self.c])
+        c_all = ''
+        for i in self.c:
+            c_all += i
+        self.chars = sorted(list(set(c_all)))
+        self.char_to_indices = dict((c, i) for i, c in enumerate(self.chars))
+        self.c_vec = []
+        for i in range(len(self.c)):
+            self.c[i] = self.c[i] + ' ' * (self.max_U - len(self.c[i]))
+            self.c_vec.append(vectorization(self.c[i], self.char_to_indices))
 
     def next_batch(self):
         # returns a randomised, seq_length sized portion of the training data
@@ -304,7 +318,7 @@ class DataLoader():
             idx = random.randint(0, len(data)-self.seq_length-2)
             x_batch.append(np.copy(data[idx:idx+self.seq_length]))
             y_batch.append(np.copy(data[idx+1:idx+self.seq_length+1]))
-            c_batch.append(self.c[self.pointer])
+            c_batch.append(self.c_vec[self.pointer])
             if random.random() < (1.0/float(n_batch)): # adjust sampling probability.
                 #if this is a long datapoint, sample this data more with higher probability
                 self.tick_batch_pointer()
