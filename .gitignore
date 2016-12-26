@@ -1,4 +1,7 @@
 data
 backup
+save
+save_predict
+save_synthesis
 *.pyc
 .idea

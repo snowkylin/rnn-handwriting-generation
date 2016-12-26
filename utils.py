@@ -157,18 +157,25 @@ def draw_strokes_pdf(data, param, factor=10, svg_filename = 'sample_pdf.svg'):
     display(SVG(dwg.tostring()))
 
 def vectorization(c, char_dict):
-    x = np.zeros((len(c), len(char_dict)), dtype=np.bool)
+    x = np.zeros((len(c), len(char_dict) + 1), dtype=np.bool)
     for i, c_i in enumerate(c):
-        x[i, char_dict[c_i]] = 1
+        if char_dict.has_key(c_i):
+            x[i, char_dict[c_i]] = 1
+        else:
+            x[i, 0] = 1
     return x
 
 class DataLoader():
-    def __init__(self, batch_size=50, seq_length=300, scale_factor = 10, limit = 500):
+    def __init__(self, batch_size=50, seq_length=300, scale_factor = 10, limit = 500,
+                 chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ',
+                 points_per_char=25):
         self.data_dir = "./data"
         self.batch_size = batch_size
         self.seq_length = seq_length
         self.scale_factor = scale_factor # divide data by this factor
         self.limit = limit # removes large noisy gaps in the data
+        self.chars = chars
+        self.points_per_char = points_per_char
 
         data_file = os.path.join(self.data_dir, "strokes_training_data.cpkl")
         raw_data_dir = self.data_dir+"/lineStrokes"
@@ -263,8 +270,9 @@ class DataLoader():
                 print('processing '+filelist[i])
                 c_i = find_c_of_xml(filelist[i])
                 if c_i:
-                    c.append(c_i)
-                    strokes.append(convert_stroke_to_array(getStrokes(filelist[i])))
+                    if len(c_i) >= 10:
+                        c.append(c_i)
+                        strokes.append(convert_stroke_to_array(getStrokes(filelist[i])))
 
 
         f = open(data_file,"wb")
@@ -296,15 +304,14 @@ class DataLoader():
         print "%d strokes available" % len(self.data)
         # minus 1, since we want the ydata to be a shifted version of x data
         self.num_batches = int(counter / self.batch_size)
-        self.max_U = max([len(i) for i in self.c])
-        c_all = ''
-        for i in self.c:
-            c_all += i
-        self.chars = sorted(list(set(c_all)))
-        self.char_to_indices = dict((c, i) for i, c in enumerate(self.chars))
+        self.max_U = self.seq_length / self.points_per_char
+        self.char_to_indices = dict((c, i + 1) for i, c in enumerate(self.chars)) # 0 for unknown
         self.c_vec = []
         for i in range(len(self.c)):
-            self.c[i] = self.c[i] + ' ' * (self.max_U - len(self.c[i]))
+            if len(self.c[i]) >= self.max_U:
+                self.c[i] = self.c[i][:self.max_U]
+            else:
+                self.c[i] = self.c[i] + ' ' * (self.max_U - len(self.c[i]))
             self.c_vec.append(vectorization(self.c[i], self.char_to_indices))
 
     def next_batch(self):
@@ -314,14 +321,16 @@ class DataLoader():
         c_batch = []
         for i in range(self.batch_size):
             data = self.data[self.pointer]
-            n_batch = int(len(data)/((self.seq_length+2))) # number of equiv batches this datapoint is worth
-            idx = random.randint(0, len(data)-self.seq_length-2)
-            x_batch.append(np.copy(data[idx:idx+self.seq_length]))
-            y_batch.append(np.copy(data[idx+1:idx+self.seq_length+1]))
+            #n_batch = int(len(data)/((self.seq_length+2))) # number of equiv batches this datapoint is worth
+            #idx = random.randint(0, len(data)-self.seq_length-2)
+            #x_batch.append(np.copy(data[idx:idx+self.seq_length]))
+            #y_batch.append(np.copy(data[idx+1:idx+self.seq_length+1]))
+            x_batch.append(np.copy(data[0:self.seq_length]))
+            y_batch.append(np.copy(data[1:self.seq_length + 1]))
             c_batch.append(self.c_vec[self.pointer])
-            if random.random() < (1.0/float(n_batch)): # adjust sampling probability.
+            #if random.random() < (1.0/float(n_batch)): # adjust sampling probability.
                 #if this is a long datapoint, sample this data more with higher probability
-                self.tick_batch_pointer()
+            self.tick_batch_pointer()
         return x_batch, y_batch, c_batch
 
     def tick_batch_pointer(self):
