@@ -42,7 +42,8 @@ args.batch_size = 1
 
 data_loader = DataLoader(50, 300, args.data_scale,
                          chars=args.chars, points_per_char=args.points_per_char)
-args.U = data_loader.max_U
+str = 'a quick brown fox jumps over the lazy dog'
+args.U = len(str)
 args.c_dimension = len(data_loader.chars) + 1
 
 model = m.Model(args)
@@ -54,8 +55,7 @@ with tf.Session() as sess:
     if args.mode == 'predict':
         strokes = model.sample(sess, 800)
     if args.mode == 'synthesis':
-        str = 'test'
-        str = vectorization(str + ' ' * (args.U - len(str)), data_loader.char_to_indices)
+        str = vectorization(str, data_loader.char_to_indices)
         strokes = model.sample(sess, 800, str=str)
     # print strokes
     draw_strokes_random_color(strokes, factor=0.1, svg_filename='sample' + '.normal.svg')

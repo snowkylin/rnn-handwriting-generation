@@ -270,9 +270,8 @@ class DataLoader():
                 print('processing '+filelist[i])
                 c_i = find_c_of_xml(filelist[i])
                 if c_i:
-                    if len(c_i) >= 10:
-                        c.append(c_i)
-                        strokes.append(convert_stroke_to_array(getStrokes(filelist[i])))
+                    c.append(c_i)
+                    strokes.append(convert_stroke_to_array(getStrokes(filelist[i])))
 
 
         f = open(data_file,"wb")
@@ -291,7 +290,7 @@ class DataLoader():
         counter = 0
 
         for i, data in enumerate(self.raw_data):
-            if len(data) > (self.seq_length+2):
+            if len(data) > (self.seq_length+2) and len(self.raw_c[i]) >= 10:
                 # removes large gaps from the data
                 data = np.minimum(data, self.limit)
                 data = np.maximum(data, -self.limit)

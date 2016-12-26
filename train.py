@@ -57,8 +57,8 @@ with tf.Session() as sess:
                 feed_dict = {model.x: x, model.y: y, model.c_vec: c}
             # print c
             # print x
-            # print sess.run([model.loss_gaussian, model.loss_bernoulli],
-            #                feed_dict={model.x: x, model.y: y})
+            # print sess.run([model.phi],
+            #                feed_dict=feed_dict)
             if b % 100 == 0:
                 loss = sess.run(model.loss, feed_dict=feed_dict)
                 print 'batches %d, loss %g' % (b, loss)
