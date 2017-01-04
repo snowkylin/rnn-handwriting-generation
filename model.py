@@ -40,22 +40,23 @@ class Model():
             self.output_list = []
             h2k_w = tf.Variable(tf.truncated_normal([args.rnn_state_size, args.K * 3], 0.0, 0.075, dtype=tf.float32))
             h2k_b = tf.Variable(tf.truncated_normal([args.K * 3], -3, 0.25, dtype=tf.float32))
-            kappa_prev = tf.zeros([args.batch_size, args.K, 1])
+            self.init_kappa = tf.zeros([args.batch_size, args.K, 1])
             self.init_w = tf.zeros([args.batch_size, args.c_dimension])
             w = self.init_w
+            kappa_prev = self.init_kappa
             u = expand(expand(np.array([i for i in range(args.U)], dtype=np.float32), 0, args.K), 0, args.batch_size)
             DO_SHARE = False
             for t in range(args.T):
                 with tf.variable_scope("cell1", reuse=DO_SHARE):
-                    h_cell1, cell1_state = self.cell1(tf.concat(1, [x_list[t]]), cell1_state)
-                    # h_cell1, cell1_state = self.cell1(tf.concat(1, [x_list[t], w]), cell1_state)
+                    # h_cell1, cell1_state = self.cell1(tf.concat(1, [x_list[t]]), cell1_state)
+                    h_cell1, cell1_state = self.cell1(tf.concat(1, [x_list[t], w]), cell1_state)
                 k_gaussian = tf.nn.xw_plus_b(h_cell1, h2k_w, h2k_b)
                 alpha_hat, beta_hat, kappa_hat = tf.split(1, 3, k_gaussian)
                 alpha = tf.expand_dims(tf.exp(alpha_hat), 2)
                 beta = tf.expand_dims(tf.exp(beta_hat), 2)
-                kappa = kappa_prev + tf.expand_dims(tf.exp(kappa_hat), 2)
-                kappa_prev = kappa
-                self.phi = tf.reduce_sum(tf.exp(tf.square(-u + kappa) * (-beta)) * alpha, 1,
+                self.kappa = kappa_prev + tf.expand_dims(tf.exp(kappa_hat), 2)
+                kappa_prev = self.kappa
+                self.phi = tf.reduce_sum(tf.exp(tf.square(-u + self.kappa) * (-beta)) * alpha, 1,
                                     keep_dims=True)
                 # w_list = [0] * args.batch_size
                 # for batch in range(args.batch_size):
@@ -64,8 +65,8 @@ class Model():
                 w = tf.squeeze(tf.batch_matmul(self.phi, self.c_vec), [1])
                 with tf.variable_scope("cell2", reuse=DO_SHARE):
                     output_t, cell2_state = self.cell2(
-                        tf.concat(1, [x_list[t], h_cell1]), cell2_state)
-                        # tf.concat(1, [x_list[t], h_cell1, w]), cell2_state)
+                        # tf.concat(1, [x_list[t], h_cell1]), cell2_state)
+                        tf.concat(1, [x_list[t], h_cell1, w]), cell2_state)
                 # with tf.variable_scope("cell1", reuse=DO_SHARE):
                 #     output_t, cell1_state = self.cell1(x_list[t], cell1_state)
                 self.output_list.append(output_t)
@@ -116,6 +117,10 @@ class Model():
             cell1_state = sess.run(self.cell1.zero_state(1, tf.float32))
             cell2_state = sess.run(self.cell2.zero_state(1, tf.float32))
             w = sess.run(tf.zeros([1, self.args.c_dimension]))
+            kappa = sess.run(tf.zeros([1, self.args.K, 1]))
+            w_list = []
+            phi_list = []
+            kappa_list = []
         for i in range(length - 1):
             if self.args.mode == 'predict':
                 feed_dict = {self.x: x, self.init_state: state}
@@ -125,17 +130,21 @@ class Model():
                     feed_dict=feed_dict
                 )
             if self.args.mode == 'synthesis':
+                w_list.append(w[0])
+                kappa_list.append(kappa[0, :, 0])
                 feed_dict = {self.x: x,
                              self.c_vec: [str],
                              self.init_cell1_state: cell1_state,
                              self.init_cell2_state: cell2_state,
-                             self.init_w: w}
-                end_of_stroke, pi, mu1, mu2, sigma1, sigma2, rho, cell1_state, cell2_state, w = sess.run(
+                             self.init_w: w,
+                             self.init_kappa: kappa}
+                end_of_stroke, pi, mu1, mu2, sigma1, sigma2, rho, cell1_state, cell2_state, w, phi, kappa = sess.run(
                     [self.end_of_stroke, self.pi, self.mu1, self.mu2,
                      self.sigma1, self.sigma2, self.rho,
-                     self.final_cell1_state, self.final_cell2_state, self.final_w],
+                     self.final_cell1_state, self.final_cell2_state, self.final_w, self.phi, self.kappa],
                     feed_dict=feed_dict
                 )
+                phi_list.append(phi[0, 0, :])
             x = np.zeros([1, 1, 3], np.float32)
             r = np.random.rand()
             accu = 0
@@ -154,4 +163,13 @@ class Model():
             else:
                 x[0, 0, 2] = 0
             strokes[i + 1, :] = x[0, 0, :]
+        if self.args.mode == 'synthesis':
+            print kappa_list
+            import matplotlib.pyplot as plt
+            plt.imshow(kappa_list, interpolation='nearest')
+            plt.show()
+            plt.imshow(phi_list, interpolation='nearest')
+            plt.show()
+            plt.imshow(w_list, interpolation='nearest')
+            plt.show()
         return strokes

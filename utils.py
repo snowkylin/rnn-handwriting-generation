@@ -317,6 +317,7 @@ class DataLoader():
         # returns a randomised, seq_length sized portion of the training data
         x_batch = []
         y_batch = []
+        c_vec_batch = []
         c_batch = []
         for i in range(self.batch_size):
             data = self.data[self.pointer]
@@ -326,11 +327,12 @@ class DataLoader():
             #y_batch.append(np.copy(data[idx+1:idx+self.seq_length+1]))
             x_batch.append(np.copy(data[0:self.seq_length]))
             y_batch.append(np.copy(data[1:self.seq_length + 1]))
-            c_batch.append(self.c_vec[self.pointer])
+            c_vec_batch.append(self.c_vec[self.pointer])
+            c_batch.append(self.c[self.pointer])
             #if random.random() < (1.0/float(n_batch)): # adjust sampling probability.
                 #if this is a long datapoint, sample this data more with higher probability
             self.tick_batch_pointer()
-        return x_batch, y_batch, c_batch
+        return x_batch, y_batch, c_vec_batch, c_batch
 
     def tick_batch_pointer(self):
         self.pointer += 1
