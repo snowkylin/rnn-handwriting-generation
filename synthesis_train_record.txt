@@ -1,0 +1,1053 @@
+/home/snowkylin/anaconda2/envs/tensorflow/bin/python /home/snowkylin/rnn-handwriting-generation/train.py
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcublas.so locally
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcudnn.so locally
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcufft.so locally
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcurand.so locally
+11604 strokes available
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:925] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:951] Found device 0 with properties: 
+name: GeForce GTX 1060 6GB
+major: 6 minor: 1 memoryClockRate (GHz) 1.8095
+pciBusID 0000:01:00.0
+Total memory: 5.96GiB
+Free memory: 5.79GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:972] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:1041] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+epoch 0
+batches 0, loss 4.39195
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 3000 get requests, put_count=1100 evicted_count=1000 eviction_rate=0.909091 and unsatisfied allocation rate=1
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:257] Raising pool_size_limit_ from 100 to 110
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 0 get requests, put_count=2013 evicted_count=2000 eviction_rate=0.993542 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 0 get requests, put_count=1019 evicted_count=1000 eviction_rate=0.981354 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 3000 get requests, put_count=2306 evicted_count=2000 eviction_rate=0.867303 and unsatisfied allocation rate=0.906333
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:257] Raising pool_size_limit_ from 281 to 309
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 0 get requests, put_count=2037 evicted_count=2000 eviction_rate=0.981836 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 0 get requests, put_count=1054 evicted_count=1000 eviction_rate=0.948767 and unsatisfied allocation rate=0
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 3000 get requests, put_count=2950 evicted_count=2000 eviction_rate=0.677966 and unsatisfied allocation rate=0.709667
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:257] Raising pool_size_limit_ from 871 to 958
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 0 get requests, put_count=1140 evicted_count=1000 eviction_rate=0.877193 and unsatisfied allocation rate=0
+batches 100, loss 1.8284
+batches 200, loss 0.612609
+batches 300, loss 0.559996
+epoch 1
+batches 0, loss 0.232944
+batches 100, loss 0.428269
+batches 200, loss 0.276076
+batches 300, loss 0.363076
+epoch 2
+batches 0, loss 0.0512376
+batches 100, loss 0.312306
+batches 200, loss 0.204103
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 3000000 get requests, put_count=3000082 evicted_count=3000 eviction_rate=0.000999973 and unsatisfied allocation rate=0.00106333
+batches 300, loss 0.250208
+epoch 3
+batches 0, loss -0.0607174
+batches 100, loss 0.199542
+batches 200, loss 0.117833
+batches 300, loss 0.166827
+epoch 4
+batches 0, loss -0.160428
+batches 100, loss 0.116708
+batches 200, loss 0.0302113
+batches 300, loss 0.0991543
+epoch 5
+batches 0, loss -0.220455
+batches 100, loss 0.0604419
+batches 200, loss -0.0374285
+batches 300, loss 0.058774
+epoch 6
+batches 0, loss -0.265187
+batches 100, loss -0.00814343
+batches 200, loss -0.076306
+batches 300, loss 0.013454
+epoch 7
+batches 0, loss -0.312392
+batches 100, loss -0.0461216
+batches 200, loss -0.110205
+batches 300, loss -0.0261118
+epoch 8
+batches 0, loss -0.345679
+batches 100, loss -0.096244
+batches 200, loss -0.151044
+batches 300, loss -0.0661383
+epoch 9
+batches 0, loss -0.374944
+batches 100, loss -0.132779
+batches 200, loss -0.174397
+batches 300, loss -0.105316
+epoch 10
+batches 0, loss -0.427626
+batches 100, loss -0.164086
+batches 200, loss -0.216803
+batches 300, loss -0.141635
+epoch 11
+batches 0, loss -0.451924
+batches 100, loss -0.202857
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 13002000 get requests, put_count=13002080 evicted_count=13000 eviction_rate=0.00099984 and unsatisfied allocation rate=0.00101461
+batches 200, loss -0.241333
+batches 300, loss -0.176933
+epoch 12
+batches 0, loss -0.483607
+batches 100, loss -0.231971
+batches 200, loss -0.272348
+batches 300, loss -0.177534
+epoch 13
+batches 0, loss -0.495458
+batches 100, loss -0.249761
+batches 200, loss -0.297082
+batches 300, loss -0.219332
+epoch 14
+batches 0, loss -0.513416
+batches 100, loss -0.270139
+batches 200, loss -0.30789
+batches 300, loss -0.231396
+epoch 15
+batches 0, loss -0.530605
+batches 100, loss -0.285281
+batches 200, loss -0.320777
+batches 300, loss -0.254001
+epoch 16
+batches 0, loss -0.541234
+batches 100, loss -0.312864
+batches 200, loss -0.344782
+batches 300, loss -0.292075
+epoch 17
+batches 0, loss -0.565578
+batches 100, loss -0.34953
+batches 200, loss -0.355802
+batches 300, loss -0.0550103
+epoch 18
+batches 0, loss -0.486996
+batches 100, loss -0.276225
+batches 200, loss -0.310278
+batches 300, loss -0.26173
+epoch 19
+batches 0, loss -0.558275
+batches 100, loss -0.331022
+batches 200, loss -0.337332
+batches 300, loss -0.301915
+epoch 20
+batches 0, loss -0.58675
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 23001000 get requests, put_count=23001081 evicted_count=23000 eviction_rate=0.000999953 and unsatisfied allocation rate=0.00100826
+batches 100, loss -0.378526
+batches 200, loss -0.365879
+batches 300, loss -0.335866
+epoch 21
+batches 0, loss -0.608777
+batches 100, loss -0.363484
+batches 200, loss -0.362742
+batches 300, loss -0.354521
+epoch 22
+batches 0, loss -0.616063
+batches 100, loss -0.410599
+batches 200, loss -0.368625
+batches 300, loss -0.377421
+epoch 23
+batches 0, loss -0.619799
+batches 100, loss -0.423826
+batches 200, loss -0.373554
+batches 300, loss -0.361123
+epoch 24
+batches 0, loss -0.611933
+batches 100, loss -0.42409
+batches 200, loss -0.38189
+batches 300, loss -0.397765
+epoch 25
+batches 0, loss -0.623213
+batches 100, loss -0.396529
+batches 200, loss -0.383184
+batches 300, loss -0.418044
+epoch 26
+batches 0, loss -0.632574
+batches 100, loss -0.445741
+batches 200, loss -0.387572
+batches 300, loss -0.430925
+epoch 27
+batches 0, loss -0.63181
+batches 100, loss -0.461499
+batches 200, loss -0.396515
+batches 300, loss -0.431048
+epoch 28
+batches 0, loss -0.636236
+batches 100, loss -0.443457
+batches 200, loss -0.400444
+batches 300, loss -0.439646
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 33000000 get requests, put_count=33000082 evicted_count=33000 eviction_rate=0.000999998 and unsatisfied allocation rate=0.00100576
+epoch 29
+batches 0, loss -0.635248
+batches 100, loss -0.452471
+batches 200, loss -0.398695
+batches 300, loss -0.437231
+epoch 30
+batches 0, loss -0.661882
+batches 100, loss -0.471653
+batches 200, loss -0.402441
+batches 300, loss -0.466904
+epoch 31
+batches 0, loss -0.674437
+batches 100, loss -0.480622
+batches 200, loss -0.405595
+batches 300, loss -0.476259
+epoch 32
+batches 0, loss -0.656018
+batches 100, loss -0.470385
+batches 200, loss -0.407792
+batches 300, loss -0.485102
+epoch 33
+batches 0, loss -0.6964
+batches 100, loss -0.454567
+batches 200, loss -0.414074
+batches 300, loss -0.470678
+epoch 34
+batches 0, loss -0.702998
+batches 100, loss -0.51836
+batches 200, loss -0.41632
+batches 300, loss -0.48017
+epoch 35
+batches 0, loss -0.710679
+batches 100, loss -0.532202
+batches 200, loss -0.418635
+batches 300, loss -0.49219
+epoch 36
+batches 0, loss -0.701755
+batches 100, loss -0.525153
+batches 200, loss -0.424298
+batches 300, loss -0.530218
+epoch 37
+batches 0, loss -0.668762
+batches 100, loss -0.526449
+batches 200, loss -0.42536
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 43002000 get requests, put_count=43002080 evicted_count=43000 eviction_rate=0.000999952 and unsatisfied allocation rate=0.00100442
+batches 300, loss -0.293073
+epoch 38
+batches 0, loss -0.654029
+batches 100, loss -0.489548
+batches 200, loss -0.41711
+batches 300, loss -0.504552
+epoch 39
+batches 0, loss -0.703791
+batches 100, loss -0.542055
+batches 200, loss -0.420452
+batches 300, loss -0.552672
+epoch 40
+batches 0, loss -0.599627
+batches 100, loss -0.550638
+batches 200, loss -0.387356
+batches 300, loss -0.538499
+epoch 41
+batches 0, loss -0.707371
+batches 100, loss -0.575711
+batches 200, loss -0.428459
+batches 300, loss -0.595588
+epoch 42
+batches 0, loss -0.736071
+batches 100, loss -0.598845
+batches 200, loss -0.420516
+batches 300, loss -0.609746
+epoch 43
+batches 0, loss -0.721947
+batches 100, loss -0.608887
+batches 200, loss -0.433332
+batches 300, loss -0.630957
+epoch 44
+batches 0, loss -0.72915
+batches 100, loss -0.626388
+batches 200, loss -0.43699
+batches 300, loss -0.655755
+epoch 45
+batches 0, loss -0.688753
+batches 100, loss -0.616778
+batches 200, loss -0.43288
+batches 300, loss -0.668409
+epoch 46
+batches 0, loss -0.728489
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 53001000 get requests, put_count=53001081 evicted_count=53000 eviction_rate=0.00099998 and unsatisfied allocation rate=0.00100358
+batches 100, loss -0.626408
+batches 200, loss -0.421244
+batches 300, loss -0.650984
+epoch 47
+batches 0, loss -0.693004
+batches 100, loss -0.540815
+batches 200, loss -0.429866
+batches 300, loss -0.63868
+epoch 48
+batches 0, loss -0.733397
+batches 100, loss -0.615875
+batches 200, loss -0.431205
+batches 300, loss -0.6544
+epoch 49
+batches 0, loss -0.730156
+batches 100, loss -0.615426
+batches 200, loss -0.400754
+batches 300, loss -0.58862
+epoch 50
+batches 0, loss -0.747747
+batches 100, loss -0.498459
+batches 200, loss -0.414442
+batches 300, loss -0.590124
+epoch 51
+batches 0, loss -0.76018
+batches 100, loss -0.636688
+batches 200, loss -0.432822
+batches 300, loss -0.540453
+epoch 52
+batches 0, loss -0.723764
+batches 100, loss -0.618731
+batches 200, loss -0.433397
+batches 300, loss -0.673315
+epoch 53
+batches 0, loss -0.773939
+batches 100, loss -0.688075
+batches 200, loss -0.434885
+batches 300, loss -0.711111
+epoch 54
+batches 0, loss -0.778179
+batches 100, loss -0.70422
+batches 200, loss -0.439395
+batches 300, loss -0.71605
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 63000000 get requests, put_count=63000082 evicted_count=63000 eviction_rate=0.000999999 and unsatisfied allocation rate=0.00100302
+epoch 55
+batches 0, loss -0.780348
+batches 100, loss -0.689121
+batches 200, loss -0.415184
+batches 300, loss -0.627328
+epoch 56
+batches 0, loss -0.768696
+batches 100, loss -0.68926
+batches 200, loss -0.430896
+batches 300, loss -0.714846
+epoch 57
+batches 0, loss -0.792494
+batches 100, loss -0.701544
+batches 200, loss -0.435442
+batches 300, loss -0.670596
+epoch 58
+batches 0, loss -0.773639
+batches 100, loss -0.699442
+batches 200, loss -0.441543
+batches 300, loss -0.714857
+epoch 59
+batches 0, loss -0.689852
+batches 100, loss -0.586305
+batches 200, loss -0.439491
+batches 300, loss -0.676392
+epoch 60
+batches 0, loss -0.760648
+batches 100, loss -0.674185
+batches 200, loss -0.442211
+batches 300, loss -0.698898
+epoch 61
+batches 0, loss -0.775735
+batches 100, loss -0.691053
+batches 200, loss -0.423755
+batches 300, loss -0.702079
+epoch 62
+batches 0, loss -0.761376
+batches 100, loss -0.669018
+batches 200, loss -0.445607
+batches 300, loss -0.742782
+epoch 63
+batches 0, loss -0.780477
+batches 100, loss -0.686591
+batches 200, loss -0.445056
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 73002000 get requests, put_count=73002080 evicted_count=73000 eviction_rate=0.000999972 and unsatisfied allocation rate=0.0010026
+batches 300, loss -0.751575
+epoch 64
+batches 0, loss -0.775809
+batches 100, loss -0.60488
+batches 200, loss -0.436277
+batches 300, loss -0.728299
+epoch 65
+batches 0, loss -0.790075
+batches 100, loss -0.714195
+batches 200, loss -0.446968
+batches 300, loss -0.772912
+epoch 66
+batches 0, loss -0.800135
+batches 100, loss -0.714895
+batches 200, loss -0.446501
+batches 300, loss -0.796702
+epoch 67
+batches 0, loss -0.820176
+batches 100, loss -0.724668
+batches 200, loss -0.421421
+batches 300, loss -0.769773
+epoch 68
+batches 0, loss -0.805456
+batches 100, loss -0.758366
+batches 200, loss -0.430712
+batches 300, loss -0.794469
+epoch 69
+batches 0, loss -0.77547
+batches 100, loss -0.749271
+batches 200, loss -0.441284
+batches 300, loss -0.850985
+epoch 70
+batches 0, loss -0.807562
+batches 100, loss -0.741674
+batches 200, loss -0.445507
+batches 300, loss -0.744266
+epoch 71
+batches 0, loss -0.745395
+batches 100, loss -0.743742
+batches 200, loss -0.441199
+batches 300, loss -0.839349
+epoch 72
+batches 0, loss -0.811543
+batches 100, loss -0.809293
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 83001000 get requests, put_count=83001081 evicted_count=83000 eviction_rate=0.000999987 and unsatisfied allocation rate=0.00100229
+batches 200, loss -0.424196
+batches 300, loss -0.742318
+epoch 73
+batches 0, loss -0.789491
+batches 100, loss -0.77072
+batches 200, loss -0.44457
+batches 300, loss -0.878221
+epoch 74
+batches 0, loss -0.805904
+batches 100, loss -0.702369
+batches 200, loss -0.4439
+batches 300, loss -0.843068
+epoch 75
+batches 0, loss -0.83175
+batches 100, loss -0.84671
+batches 200, loss -0.447912
+batches 300, loss -0.884469
+epoch 76
+batches 0, loss -0.842195
+batches 100, loss -0.840579
+batches 200, loss -0.445326
+batches 300, loss -0.906547
+epoch 77
+batches 0, loss -0.828143
+batches 100, loss -0.810208
+batches 200, loss -0.447378
+batches 300, loss -0.912093
+epoch 78
+batches 0, loss -0.815968
+batches 100, loss -0.862701
+batches 200, loss -0.451286
+batches 300, loss -0.692435
+epoch 79
+batches 0, loss -0.782097
+batches 100, loss -0.837871
+batches 200, loss -0.451774
+batches 300, loss -0.890987
+epoch 80
+batches 0, loss -0.826375
+batches 100, loss -0.809659
+batches 200, loss -0.449546
+batches 300, loss -0.861598
+epoch 81
+batches 0, loss -0.797794
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 93000000 get requests, put_count=93000082 evicted_count=93000 eviction_rate=0.000999999 and unsatisfied allocation rate=0.00100204
+batches 100, loss -0.720587
+batches 200, loss -0.444963
+batches 300, loss -0.833522
+epoch 82
+batches 0, loss -0.788206
+batches 100, loss -0.775093
+batches 200, loss -0.438235
+batches 300, loss -0.77599
+epoch 83
+batches 0, loss -0.801777
+batches 100, loss -0.826221
+batches 200, loss -0.439717
+batches 300, loss -0.810404
+epoch 84
+batches 0, loss -0.801716
+batches 100, loss -0.821839
+batches 200, loss -0.451515
+batches 300, loss -0.905438
+epoch 85
+batches 0, loss -0.848466
+batches 100, loss -0.91518
+batches 200, loss -0.453333
+batches 300, loss -0.879359
+epoch 86
+batches 0, loss -0.838835
+batches 100, loss -0.893026
+batches 200, loss -0.445067
+batches 300, loss -0.917488
+epoch 87
+batches 0, loss -0.856736
+batches 100, loss -0.894014
+batches 200, loss -0.416107
+batches 300, loss -0.812145
+epoch 88
+batches 0, loss -0.814877
+batches 100, loss -0.851911
+batches 200, loss -0.43728
+batches 300, loss -0.933225
+epoch 89
+batches 0, loss -0.776145
+batches 100, loss -0.79749
+batches 200, loss -0.452091
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 103002000 get requests, put_count=103002080 evicted_count=103000 eviction_rate=0.00099998 and unsatisfied allocation rate=0.00100184
+batches 300, loss -0.95336
+epoch 90
+batches 0, loss -0.815815
+batches 100, loss -0.910886
+batches 200, loss -0.44896
+batches 300, loss -0.980674
+epoch 91
+batches 0, loss -0.815608
+batches 100, loss -0.840487
+batches 200, loss -0.449725
+batches 300, loss -0.963838
+epoch 92
+batches 0, loss -0.827724
+batches 100, loss -0.889093
+batches 200, loss -0.452043
+batches 300, loss -0.972824
+epoch 93
+batches 0, loss -0.793755
+batches 100, loss -0.868304
+batches 200, loss -0.452715
+batches 300, loss -0.841352
+epoch 94
+batches 0, loss -0.774642
+batches 100, loss -0.823204
+batches 200, loss -0.445407
+batches 300, loss -0.927237
+epoch 95
+batches 0, loss -0.795559
+batches 100, loss -0.785316
+batches 200, loss -0.438836
+batches 300, loss -0.914713
+epoch 96
+batches 0, loss -0.81119
+batches 100, loss -0.849611
+batches 200, loss -0.451937
+batches 300, loss -0.930891
+epoch 97
+batches 0, loss -0.832971
+batches 100, loss -0.894558
+batches 200, loss -0.443777
+batches 300, loss -0.955676
+epoch 98
+batches 0, loss -0.859405
+batches 100, loss -0.893296
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 113001000 get requests, put_count=113001081 evicted_count=113000 eviction_rate=0.00099999 and unsatisfied allocation rate=0.00100168
+batches 200, loss -0.44952
+batches 300, loss -0.985529
+epoch 99
+batches 0, loss -0.867481
+batches 100, loss -0.89822
+batches 200, loss -0.451632
+batches 300, loss -0.990499
+epoch 100
+batches 0, loss -0.864484
+batches 100, loss -0.886446
+batches 200, loss -0.454956
+batches 300, loss -1.01713
+epoch 101
+batches 0, loss -0.833423
+batches 100, loss -0.862455
+batches 200, loss -0.441971
+batches 300, loss -1.00675
+epoch 102
+batches 0, loss -0.836552
+batches 100, loss -0.87308
+batches 200, loss -0.451631
+batches 300, loss -1.02465
+epoch 103
+batches 0, loss -0.844933
+batches 100, loss -0.909323
+batches 200, loss -0.417679
+batches 300, loss -0.788586
+epoch 104
+batches 0, loss -0.827906
+batches 100, loss -0.840675
+batches 200, loss -0.449186
+batches 300, loss -1.02065
+epoch 105
+batches 0, loss -0.868555
+batches 100, loss -0.953775
+batches 200, loss -0.449568
+batches 300, loss -1.02659
+epoch 106
+batches 0, loss -0.889107
+batches 100, loss -0.918039
+batches 200, loss -0.447261
+batches 300, loss -0.982005
+epoch 107
+batches 0, loss -0.875624
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 123000000 get requests, put_count=123000082 evicted_count=123000 eviction_rate=0.000999999 and unsatisfied allocation rate=0.00100154
+batches 100, loss -0.91161
+batches 200, loss -0.450522
+batches 300, loss -1.07201
+epoch 108
+batches 0, loss -0.895931
+batches 100, loss -0.935854
+batches 200, loss -0.452977
+batches 300, loss -1.07821
+epoch 109
+batches 0, loss -0.913684
+batches 100, loss -0.945901
+batches 200, loss -0.452542
+batches 300, loss -0.370529
+epoch 110
+batches 0, loss -0.738766
+batches 100, loss -0.670514
+batches 200, loss -0.439736
+batches 300, loss -0.782537
+epoch 111
+batches 0, loss -0.846221
+batches 100, loss -0.859549
+batches 200, loss -0.450181
+batches 300, loss -0.971915
+epoch 112
+batches 0, loss -0.883262
+batches 100, loss -0.808233
+batches 200, loss -0.355546
+batches 300, loss -0.620484
+epoch 113
+batches 0, loss -0.816241
+batches 100, loss -0.830568
+batches 200, loss -0.444636
+batches 300, loss -0.941596
+epoch 114
+batches 0, loss -0.892108
+batches 100, loss -0.958114
+batches 200, loss -0.450902
+batches 300, loss -1.06083
+epoch 115
+batches 0, loss -0.913687
+batches 100, loss -0.986708
+batches 200, loss -0.454619
+batches 300, loss -1.09846
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 133002000 get requests, put_count=133002080 evicted_count=133000 eviction_rate=0.000999984 and unsatisfied allocation rate=0.00100143
+epoch 116
+batches 0, loss -0.920837
+batches 100, loss -0.991792
+batches 200, loss -0.454623
+batches 300, loss -1.09655
+epoch 117
+batches 0, loss -0.925561
+batches 100, loss -0.990704
+batches 200, loss -0.455506
+batches 300, loss -1.11118
+epoch 118
+batches 0, loss -0.9059
+batches 100, loss -0.436164
+batches 200, loss -0.419308
+batches 300, loss -0.783131
+epoch 119
+batches 0, loss -0.854323
+batches 100, loss -0.851073
+batches 200, loss -0.44987
+batches 300, loss -1.0235
+epoch 120
+batches 0, loss -0.869704
+batches 100, loss -0.931924
+batches 200, loss -0.454159
+batches 300, loss -1.09392
+epoch 121
+batches 0, loss -0.918948
+batches 100, loss -0.974111
+batches 200, loss -0.45229
+batches 300, loss -1.11343
+epoch 122
+batches 0, loss -0.918235
+batches 100, loss -0.966833
+batches 200, loss -0.456687
+batches 300, loss -1.11222
+epoch 123
+batches 0, loss -0.946929
+batches 100, loss -0.979254
+batches 200, loss -0.45867
+batches 300, loss -1.11134
+epoch 124
+batches 0, loss -0.925556
+batches 100, loss -1.01224
+batches 200, loss -0.459709
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 143001000 get requests, put_count=143001081 evicted_count=143000 eviction_rate=0.000999992 and unsatisfied allocation rate=0.00100133
+batches 300, loss -1.14797
+epoch 125
+batches 0, loss -0.942123
+batches 100, loss -0.830065
+batches 200, loss -0.42655
+batches 300, loss -1.01997
+epoch 126
+batches 0, loss -0.915764
+batches 100, loss -0.990691
+batches 200, loss -0.457984
+batches 300, loss -1.15344
+epoch 127
+batches 0, loss -0.93736
+batches 100, loss -1.00655
+batches 200, loss -0.46008
+batches 300, loss -1.15647
+epoch 128
+batches 0, loss -0.879413
+batches 100, loss -0.988102
+batches 200, loss -0.457871
+batches 300, loss -1.16037
+epoch 129
+batches 0, loss -0.943151
+batches 100, loss -1.00668
+batches 200, loss -0.456301
+batches 300, loss -1.18782
+epoch 130
+batches 0, loss -0.55049
+batches 100, loss -0.657131
+batches 200, loss -0.429112
+batches 300, loss -0.858742
+epoch 131
+batches 0, loss -0.818399
+batches 100, loss -0.942352
+batches 200, loss -0.447223
+batches 300, loss -1.09589
+epoch 132
+batches 0, loss -0.882233
+batches 100, loss -0.998449
+batches 200, loss -0.43633
+batches 300, loss -1.0868
+epoch 133
+batches 0, loss -0.859987
+batches 100, loss -1.04421
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 153000000 get requests, put_count=153000082 evicted_count=153000 eviction_rate=0.000999999 and unsatisfied allocation rate=0.00100124
+batches 200, loss -0.451853
+batches 300, loss -1.19371
+epoch 134
+batches 0, loss -0.894713
+batches 100, loss -1.03913
+batches 200, loss -0.443577
+batches 300, loss -1.16741
+epoch 135
+batches 0, loss -0.904917
+batches 100, loss -0.99191
+batches 200, loss -0.455647
+batches 300, loss -1.05795
+epoch 136
+batches 0, loss -0.886821
+batches 100, loss -1.04981
+batches 200, loss -0.454428
+batches 300, loss -1.22653
+epoch 137
+batches 0, loss -0.925283
+batches 100, loss -0.417895
+batches 200, loss -0.425382
+batches 300, loss -0.844339
+epoch 138
+batches 0, loss -0.867056
+batches 100, loss -0.961264
+batches 200, loss -0.450876
+batches 300, loss -1.17838
+epoch 139
+batches 0, loss -0.918968
+batches 100, loss -1.05698
+batches 200, loss -0.454479
+batches 300, loss -1.20224
+epoch 140
+batches 0, loss -0.933634
+batches 100, loss -1.0511
+batches 200, loss -0.400728
+batches 300, loss -0.854434
+epoch 141
+batches 0, loss -0.886891
+batches 100, loss -0.493409
+batches 200, loss -0.424879
+batches 300, loss -0.821804
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 163002000 get requests, put_count=163002080 evicted_count=163000 eviction_rate=0.000999987 and unsatisfied allocation rate=0.00100117
+epoch 142
+batches 0, loss -0.856041
+batches 100, loss -0.930344
+batches 200, loss -0.440907
+batches 300, loss -1.12624
+epoch 143
+batches 0, loss -0.92083
+batches 100, loss -1.02945
+batches 200, loss -0.446839
+batches 300, loss -1.21278
+epoch 144
+batches 0, loss -0.952954
+batches 100, loss -1.04291
+batches 200, loss -0.449329
+batches 300, loss -1.23337
+epoch 145
+batches 0, loss -0.951016
+batches 100, loss -1.05363
+batches 200, loss -0.454502
+batches 300, loss -1.23058
+epoch 146
+batches 0, loss -0.959927
+batches 100, loss -1.0544
+batches 200, loss -0.452494
+batches 300, loss -1.25004
+epoch 147
+batches 0, loss -0.879344
+batches 100, loss -0.995906
+batches 200, loss -0.45206
+batches 300, loss -1.25116
+epoch 148
+batches 0, loss -0.936161
+batches 100, loss -1.07217
+batches 200, loss -0.439441
+batches 300, loss -1.20879
+epoch 149
+batches 0, loss -0.955491
+batches 100, loss -0.999396
+batches 200, loss -0.450328
+batches 300, loss -1.2284
+epoch 150
+batches 0, loss -0.94607
+batches 100, loss -1.09076
+batches 200, loss -0.456207
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 173001000 get requests, put_count=173001081 evicted_count=173000 eviction_rate=0.000999994 and unsatisfied allocation rate=0.0010011
+batches 300, loss -1.24108
+epoch 151
+batches 0, loss -0.968304
+batches 100, loss -1.07667
+batches 200, loss -0.456911
+batches 300, loss -1.24445
+epoch 152
+batches 0, loss -0.957436
+batches 100, loss -1.06339
+batches 200, loss -0.455554
+batches 300, loss -1.18923
+epoch 153
+batches 0, loss -0.940237
+batches 100, loss -1.08334
+batches 200, loss -0.456787
+batches 300, loss -1.17305
+epoch 154
+batches 0, loss -0.912207
+batches 100, loss -0.981689
+batches 200, loss -0.458417
+batches 300, loss -1.28593
+epoch 155
+batches 0, loss -0.969531
+batches 100, loss -1.0783
+batches 200, loss -0.457515
+batches 300, loss -1.2302
+epoch 156
+batches 0, loss -0.971367
+batches 100, loss -1.09868
+batches 200, loss -0.458008
+batches 300, loss -1.27608
+epoch 157
+batches 0, loss -0.94526
+batches 100, loss -1.09128
+batches 200, loss -0.455491
+batches 300, loss -1.28872
+epoch 158
+batches 0, loss -0.962467
+batches 100, loss -1.08354
+batches 200, loss -0.403133
+batches 300, loss -0.940758
+epoch 159
+batches 0, loss -0.88241
+batches 100, loss -1.08343
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 183000000 get requests, put_count=183000082 evicted_count=183000 eviction_rate=0.001 and unsatisfied allocation rate=0.00100104
+batches 200, loss -0.445322
+batches 300, loss -1.2538
+epoch 160
+batches 0, loss -0.901197
+batches 100, loss -1.08992
+batches 200, loss -0.453896
+batches 300, loss -1.13358
+epoch 161
+batches 0, loss -0.935687
+batches 100, loss -1.14976
+batches 200, loss -0.452936
+batches 300, loss -1.08556
+epoch 162
+batches 0, loss -0.947964
+batches 100, loss -1.1331
+batches 200, loss -0.452575
+batches 300, loss -1.22306
+epoch 163
+batches 0, loss -0.945627
+batches 100, loss -1.09574
+batches 200, loss -0.455474
+batches 300, loss -1.25516
+epoch 164
+batches 0, loss -0.919998
+batches 100, loss -1.10141
+batches 200, loss -0.455291
+batches 300, loss -1.23508
+epoch 165
+batches 0, loss -0.943001
+batches 100, loss -1.08229
+batches 200, loss -0.451942
+batches 300, loss -1.17895
+epoch 166
+batches 0, loss -0.932649
+batches 100, loss -1.16073
+batches 200, loss -0.454788
+batches 300, loss -1.28876
+epoch 167
+batches 0, loss -0.917498
+batches 100, loss -1.02936
+batches 200, loss -0.457742
+batches 300, loss -1.24574
+epoch 168
+batches 0, loss -0.9327
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 193002000 get requests, put_count=193002080 evicted_count=193000 eviction_rate=0.000999989 and unsatisfied allocation rate=0.00100098
+batches 100, loss -1.11328
+batches 200, loss -0.442165
+batches 300, loss -1.18831
+epoch 169
+batches 0, loss -0.934511
+batches 100, loss -1.09579
+batches 200, loss -0.448064
+batches 300, loss -1.18659
+epoch 170
+batches 0, loss -0.943654
+batches 100, loss -1.08519
+batches 200, loss -0.457682
+batches 300, loss -1.30235
+epoch 171
+batches 0, loss -0.881699
+batches 100, loss -0.872939
+batches 200, loss -0.405579
+batches 300, loss -1.13927
+epoch 172
+batches 0, loss -0.87211
+batches 100, loss -1.00836
+batches 200, loss -0.451145
+batches 300, loss -1.30067
+epoch 173
+batches 0, loss -0.847677
+batches 100, loss -1.01195
+batches 200, loss -0.456069
+batches 300, loss -1.35506
+epoch 174
+batches 0, loss -0.496774
+batches 100, loss -0.463484
+batches 200, loss -0.391453
+batches 300, loss -0.587058
+epoch 175
+batches 0, loss -0.781353
+batches 100, loss -0.750266
+batches 200, loss -0.429568
+batches 300, loss -0.822952
+epoch 176
+batches 0, loss -0.843874
+batches 100, loss -0.900444
+batches 200, loss -0.445145
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 203001000 get requests, put_count=203001081 evicted_count=203000 eviction_rate=0.000999995 and unsatisfied allocation rate=0.00100094
+batches 300, loss -1.01727
+epoch 177
+batches 0, loss -0.884722
+batches 100, loss -1.03726
+batches 200, loss -0.437987
+batches 300, loss -1.16933
+epoch 178
+batches 0, loss -0.888506
+batches 100, loss -1.05156
+batches 200, loss -0.444773
+batches 300, loss -1.22134
+epoch 179
+batches 0, loss -0.932311
+batches 100, loss -1.11846
+batches 200, loss -0.454555
+batches 300, loss -1.29637
+epoch 180
+batches 0, loss -0.962039
+batches 100, loss -1.12199
+batches 200, loss -0.441362
+batches 300, loss -1.25728
+epoch 181
+batches 0, loss -0.968165
+batches 100, loss -1.13237
+batches 200, loss -0.456608
+batches 300, loss -1.29421
+epoch 182
+batches 0, loss -0.950707
+batches 100, loss -1.13322
+batches 200, loss -0.456833
+batches 300, loss -1.32106
+epoch 183
+batches 0, loss -0.937136
+batches 100, loss -1.08273
+batches 200, loss -0.45201
+batches 300, loss -1.30321
+epoch 184
+batches 0, loss -0.887662
+batches 100, loss -1.05543
+batches 200, loss -0.454154
+batches 300, loss -1.35364
+epoch 185
+batches 0, loss -0.948492
+batches 100, loss -1.14185
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 213000000 get requests, put_count=213000082 evicted_count=213000 eviction_rate=0.001 and unsatisfied allocation rate=0.00100089
+batches 200, loss -0.454811
+batches 300, loss -1.35107
+epoch 186
+batches 0, loss -0.955061
+batches 100, loss -1.06062
+batches 200, loss -0.376156
+batches 300, loss -0.814507
+epoch 187
+batches 0, loss -0.867107
+batches 100, loss -0.999309
+batches 200, loss -0.446046
+batches 300, loss -1.23844
+epoch 188
+batches 0, loss -0.933579
+batches 100, loss -1.16244
+batches 200, loss -0.450533
+batches 300, loss -1.34494
+epoch 189
+batches 0, loss -0.9685
+batches 100, loss -1.14413
+batches 200, loss -0.444179
+batches 300, loss -1.32705
+epoch 190
+batches 0, loss -0.967167
+batches 100, loss -1.04383
+batches 200, loss -0.450295
+batches 300, loss -1.35166
+epoch 191
+batches 0, loss -0.919471
+batches 100, loss -1.11941
+batches 200, loss -0.452868
+batches 300, loss -1.36229
+epoch 192
+batches 0, loss -0.981717
+batches 100, loss -1.12454
+batches 200, loss -0.451975
+batches 300, loss -1.33527
+epoch 193
+batches 0, loss -0.938998
+batches 100, loss -0.954241
+batches 200, loss -0.447356
+batches 300, loss -1.28146
+epoch 194
+batches 0, loss -0.979056
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:245] PoolAllocator: After 223002000 get requests, put_count=223002080 evicted_count=223000 eviction_rate=0.000999991 and unsatisfied allocation rate=0.00100085
+batches 100, loss -1.16521
+batches 200, loss -0.451189
+batches 300, loss -1.37392
+epoch 195
+batches 0, loss -0.996513
+batches 100, loss -0.737712
+batches 200, loss -0.435999
+batches 300, loss -1.07466
+epoch 196
+batches 0, loss -0.963477
+batches 100, loss -1.14057
+batches 200, loss -0.446948
+batches 300, loss -1.22812
+epoch 197
+batches 0, loss -0.993134
+batches 100, loss -1.1452
+batches 200, loss -0.448075
+batches 300, loss -1.26528
+epoch 198
+batches 0, loss -0.998621
+batches 100, loss -1.14502
+batches 200, loss -0.446844
+batches 300, loss -1.25517
+epoch 199
+batches 0, loss -0.999443
+batches 100, loss -1.21553
+batches 200, loss -0.424756
+batches 300, loss -1.33332
+
+Process finished with exit code 0

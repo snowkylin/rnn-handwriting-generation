@@ -13,6 +13,8 @@ class Model():
         def expand(x, dim, N):
             return tf.concat(dim, [tf.expand_dims(x, dim) for _ in range(N)])
 
+        if args.action == 'train':
+            args.b == 0
         self.args = args
 
         self.x = tf.placeholder(dtype=tf.float32, shape=[None, args.T, 3])
@@ -85,11 +87,11 @@ class Model():
 
         self.end_of_stroke = 1 / (1 + tf.exp(self.output[:, 0]))
         pi_hat, self.mu1, self.mu2, sigma1_hat, sigma2_hat, rho_hat = tf.split(1, 6, self.output[:, 1:])
-        pi_exp = tf.exp(pi_hat)
+        pi_exp = tf.exp(pi_hat * (1 + args.b))
         pi_exp_sum = tf.reduce_sum(pi_exp, 1)
         self.pi = pi_exp / expand(pi_exp_sum, 1, args.M)
-        self.sigma1 = tf.exp(sigma1_hat)
-        self.sigma2 = tf.exp(sigma2_hat)
+        self.sigma1 = tf.exp(sigma1_hat - args.b)
+        self.sigma2 = tf.exp(sigma2_hat - args.b)
         self.rho = tf.tanh(rho_hat)
         self.gaussian = self.pi * bivariate_gaussian(
             expand(y1, 1, args.M), expand(y2, 1, args.M),
@@ -164,7 +166,7 @@ class Model():
                 x[0, 0, 2] = 0
             strokes[i + 1, :] = x[0, 0, :]
         if self.args.mode == 'synthesis':
-            print kappa_list
+            # print kappa_list
             import matplotlib.pyplot as plt
             plt.imshow(kappa_list, interpolation='nearest')
             plt.show()
