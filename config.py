@@ -25,7 +25,7 @@ parser.add_argument('--data_scale', type=float, default=20,
                     help='factor to scale raw data down by')
 parser.add_argument('--learning_rate', type=float, default=0.001,
                     help='learning rate')
-parser.add_argument('--b', type=float, default=0,
+parser.add_argument('--b', type=float, default=3.0,
                     help='biased sampling')
 # parser.add_argument('--decay_rate', type=float, default=0.95,
 #                      help='decay rate for rmsprop')
